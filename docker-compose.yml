@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api
+    hostname: api
+    network_mode: bridge
+    environment:
+      - PORT=3005
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=adminadmin
+      - DB_NAME=db
+    expose:
+      - 3005
+    ports:
+      - 3005:3005
+    depends_on:
+      - mysql
+    links:
+      - mysql:mysql
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    network_mode: bridge
+    environment:
+      - MYSQL_ROOT_PASSWORD=adminadmin
+      - MYSQL_DATABASE=db
+    expose:
+      - 3306
+    ports:
+      - 3307:3306

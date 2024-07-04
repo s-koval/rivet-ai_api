@@ -1,0 +1,45 @@
+# Get all clients
+GET http://localhost:3001/clients HTTP/1.1
+
+Query params:
+{
+  "perPage": "string", // items per page
+  "pageNo": "string"  // number of page
+}
+
+Response:
+[
+  {
+    "id": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+  }
+]
+
+
+# Create new client
+POST http:/localhost:3001/clients HTTP/1.1
+
+Request: 
+{
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+}
+
+Response:
+{
+  "message": "string",
+  "id": "string"
+}
+
+
+# Delete client
+DELETE http:/localhost:3001/clients/:id HTTP/1.1
+
+Response:
+{
+  "message": "string",
+  "id": "string"
+}
