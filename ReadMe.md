@@ -6,3 +6,5 @@ If you have ```Docker```, just type ```docker-compose up``` to start a project a
 Or create MySQL database, fill .env variables, intall dependencies with ```npm i``` and type ```npm run start```
 
 Also, you can check Swagger documentation with ```/swagger``` endpoint
+
+PS don't forget to copy env file ```cp .env.example .env```
